@@ -1,0 +1,10 @@
+BOM - Browser Object Model
+	- Deals with browser components like window, history, location, navigator, screen
+    - Each browser has its own BOM
+
+DOM - Document Object Model
+	- Deals with the documents, HTML elements
+	- Subset of BOM
+	- Defines the logical structure of the document like tree
+	- It's an API which modifies the file 
+    For eg: document.body.innerText = "Hello World"
