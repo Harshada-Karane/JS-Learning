@@ -1,0 +1,50 @@
+<html>
+    <script>
+        /* ---------------- Example 1 ---------------- */
+        function greet(name){
+            if(name === "Martin"){
+                var msg = "Hello Martin"
+            } else {
+                var msg = "Hello"
+            }
+            
+            console.log("Example 1 " + msg)
+        }
+        greet("Martin") 
+
+        /* ---------------- Example 2 ---------------- */
+        /* function greet(name){
+            var msg;
+            if(name === "Martin"){
+                msg = "Hello Martin"
+            } else {
+                msg = "Hello"
+            }
+            console.log("Example 2 " + msg)
+        }
+        greet("Martin") */
+
+        /* ---------------- Example 3 ---------------- */
+        /* function greet(name){
+            if(name === "Martin"){
+                msg = "Hello Martin"
+            } else {
+                msg = "Hello"
+            }
+            
+            console.log("Example 3 " + msg)
+            var msg;
+        }
+        greet("Martin") */
+
+    </script>
+</html>
+
+<!-- 
+    #var hoisting
+	    - var declaration has function scope (variable declared with var keyword accessible throughout the function)
+            Even though msg variable declared twice in JavaScript it will be considered as single declaration as variable is declared with var keyword
+            Compiler will read above code as Example 2
+        - var hoisting (scope is function level) -> see Example 3
+
+-->
