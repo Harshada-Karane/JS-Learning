@@ -37,14 +37,33 @@
         }
         greet("Martin") */
 
+        /* ---------------- Example 4 with let declaration ---------------- */
+        var a = 1;
+        var b = 2;
+        if(a === 1){
+            var a = 10;
+            let b = 20;
+            console.log(a);     //10
+            console.log(b);     //20 -> block scope
+        }
+        console.log(a);         //10 -> functional scope
+        console.log(b);         //2 -> block scope
+
+        /* ---------------- Example 5 ---------------- */
+        /* let a = 1;
+        let a = 10;
+        console.log(a) */          //Error in console as redeclaration is not allowed with let 
     </script>
 </html>
 
 <!-- 
-    #var hoisting
+    #var
 	    - var declaration has function scope (variable declared with var keyword accessible throughout the function)
             Even though msg variable declared twice in JavaScript it will be considered as single declaration as variable is declared with var keyword
             Compiler will read above code as Example 2
-        - var hoisting (scope is function level) -> see Example 3
-
+        - var declarations are hoisted (scope is at function level) -> Refer Example 3
+    # let 
+        - Block scope
+	    - let declarations are not hoisted (cannot use before declaration) -> Refer Example 4
+	    - cannot redeclare again within same scope  -> Refer Example 5
 -->
