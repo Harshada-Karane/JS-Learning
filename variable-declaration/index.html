@@ -38,7 +38,7 @@
         greet("Martin") */
 
         /* ---------------- Example 4 with let declaration ---------------- */
-        var a = 1;
+        /* var a = 1;
         var b = 2;
         if(a === 1){
             var a = 10;
@@ -48,11 +48,47 @@
         }
         console.log(a);         //10 -> functional scope
         console.log(b);         //2 -> block scope
-
+        */
+        
         /* ---------------- Example 5 ---------------- */
         /* let a = 1;
         let a = 10;
         console.log(a) */          //Error in console as redeclaration is not allowed with let 
+
+        /* ---------------- Example 6 - Closures in loop ---------------- */
+        /* const arr = [10, 12, 15, 21];
+        for (var i = 0; i < arr.length; i++) {
+            setTimeout(function() {
+                console.log('Index: ' + i + ', element: '+ arr[i]);             // Index: 4, element: undefined (will execute 4 times)
+            }, 100)
+        } */
+
+        /* ---------------- Example 7 - Closures in loop with let declaration ---------------- */
+        /* const arr = [10, 12, 15, 21];
+            for (let i = 0; i < arr.length; i++) {
+                setTimeout(function() {
+                    console.log('Index: ' + i + ', element: '+ arr[i]);
+                }, 3000)
+            } 
+        */
+
+       /*  o/p :    Index: 0, element: 10
+                    Index: 1, element: 12
+                    Index: 2, element: 15
+                    Index: 3, element: 21 */
+        
+        /* ---------------- Example 8 ---------------- */
+        //let num1;         //allowed
+        //const num2;       //not allowed
+
+        /* ---------------- Example 9 ---------------- */
+        const obj = {
+            name : "Glory"
+        }
+        console.log(obj.name);
+        //obj = {}          //Error -> reassigning not allowed in same scope
+        obj.name = "Mary"
+        console.log(obj.name);
     </script>
 </html>
 
@@ -62,8 +98,14 @@
             Even though msg variable declared twice in JavaScript it will be considered as single declaration as variable is declared with var keyword
             Compiler will read above code as Example 2
         - var declarations are hoisted (scope is at function level) -> Refer Example 3
+    
     # let 
         - Block scope
 	    - let declarations are not hoisted (cannot use before declaration) -> Refer Example 4
-	    - cannot redeclare again within same scope  -> Refer Example 5
+	    - reassigning not allowed in same scope  -> Refer Example 5
+
+    #const 
+        - const declarations are block scope and not hoisted
+        - must be intialized with the value at the time of declaration  -> Refer Example 8
+        - reassigning not allowed in same scope  -> Refer Example 9
 -->
