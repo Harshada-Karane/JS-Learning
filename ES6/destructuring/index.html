@@ -1,0 +1,36 @@
+<html>
+    <script>
+        //Example 1 - Array destructuring
+        let arr1 = ['Max', 'Joseph'],
+            [fname, lname] = arr1;
+        console.log(`${fname} ${lname}`)
+
+        //Example 2
+        let arr2 = ['Max', 'Joseph'],
+            [f_name, l_name, gender] = arr2;
+        console.log(`${f_name} ${l_name} ${gender}`)    //gender -> undefined
+
+        //Example 3
+        let arr3 = ['Max'],
+            [name, age=30] = arr3;
+        console.log(`${f_name} ${age}`)
+
+        //Example 4
+        let arr4 = ['Max', 'Joseph', 'Male', 30],
+        [, , _gender] = arr4;               //access specific elements
+        console.log(_gender)
+
+
+        //Example 5 - Object destructuring
+        let person = {
+            first_name : 'Jack',
+            last_name : 'Jil',
+            score : 8
+        },
+
+        {first_name, last_name : l, score} = person         //alias
+        console.log(first_name)
+        console.log(l);
+        console.log(score)
+    </script>
+</html>
