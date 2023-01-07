@@ -1,0 +1,24 @@
+<html>
+    <script>
+        const printValue = function(n){
+            return n;
+        }
+        console.log(printValue(10))
+
+        const displayValue = () => {    //omit function keyword 
+            return 100;
+        }
+        console.log(displayValue())
+
+        //more concise than previous one
+        const showValue = () => 1000      //We can remove the curly braces and return keyword if function has single statement in the body
+        console.log(showValue())
+
+        //const multiply = (n) => 10 * n;
+        const multiply = n => 10 * n;     //paranthesis not required in case of single function parameter
+        console.log(multiply(5))
+
+        const add = (x, y) => x + y;      //paranthesis required in case of multiple function parameter
+        console.log(add(10, 15));
+    </script>
+</html>
