@@ -1,0 +1,39 @@
+<html>
+    <script>
+        const obj = {
+            name : 'Max',
+            greet : function(){
+                console.log(`Hello ${this.name}`)
+            }
+        }
+        obj.greet();
+
+        const obj1 = {
+            name : 'Mary',
+            greet : function(){
+                const self = this;                  //old approach
+                setTimeout(function(){
+                    console.log(this.name)          // here 'this' is undefined as it doesn't have access to outer function
+                    console.log(self.name)
+                }, 1000)
+            }
+        }
+        obj1.greet()
+        
+        //with arrow function
+        const obj2 = {
+            name : 'Peter',
+            greet : function(){
+                setTimeout(() => console.log(`Hello ${this.name}`), 1000)
+            }
+        }
+        obj2.greet()
+        // in arrow function 'this' doesn't create its own scope instead it holds its parent't scope
+
+
+        /* 
+            # Scope Chain in JavaScript
+            https://www.freecodecamp.org/news/javascript-lexical-scope-tutorial/ 
+        */
+    </script>
+</html>
