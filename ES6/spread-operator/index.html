@@ -1,0 +1,86 @@
+<html>
+    <script>
+        //Example 1
+        console.log("----------Example 1---------------")
+        const colors = ['Blue', 'Green', 'Black']
+        console.log(colors);        //print array
+        console.log(...colors);     //print elements of array
+
+        //Example 2
+        console.log("----------Example 2---------------")
+        let array1 = ['h', ['e', [1, true, 9], "hello"], ['y']],        //nested array
+        array2 = [...array1];                                           //copying nested array
+        console.log(array2);
+
+        //Example 3 - concat
+        console.log("----------Example 3---------------")
+        let arr1 = [1, 2],
+        arr2 = [3, 4, 5],
+        arr3 = [...arr1, ...arr2];      //arr1.concat(arr2)
+        console.log(arr3)
+        /* It is not recommended to use the spread in this particular case, 
+        as for a large data set it will work slower when compared to concat method */
+
+        //Example 4 - Copy without spread operator
+        console.log("----------Example 4---------------")
+        let arr4 = [10, 20, 30],
+        arr5 = arr4;            //old approach to copy the array
+        arr5.push(50)           
+        console.log(arr4);
+        console.log(arr5)
+        
+        /*  The problem here is it affects the original array (arr4) also. 
+            This can be solved by spread operator because spread operator will not affect original array. Refer example 5
+        */
+        //Example 5 - Copy with spread operator
+        console.log("----------Example 5---------------")
+        let arr6 = [1, 2],
+        arr7 = [...arr6];
+
+        arr7.push(10);
+        console.log(arr6);
+        console.log(arr7);
+
+        //Example 6 - Math
+        console.log("----------Example 6---------------")
+        let numbers = [5, 1, 4, -2, 10];
+        console.log(Math.min(numbers))          //NaN
+        console.log(Math.min(...numbers))       //-2
+
+        //Example 7 - SPread operator with objects
+        console.log("----------Example 7---------------")
+        let obj1 = {
+            name : "Max"
+        },
+        obj2 = {...obj1};
+        obj2.name = "Mary";
+        console.log(obj2)       //Mary
+        console.log(obj1)       //Max
+
+        //Example 8
+        console.log("----------Example 8---------------")
+        const user1 = {
+            name: 'Aman',
+            age: 22
+        };
+        
+        const user2 = {
+            name: "Naman",
+            location: "India"
+        };
+        
+        const users = {...user1, ...user2};
+        console.log(users)
+
+
+        /* Note
+            - It takes an array and returns an individual elements
+        ### - Spread operator specified in the function call
+            - Rest operator specified in the function declaration 
+            - The spread operator is commonly used to make deep copies of JS objects. 
+            When we have nested arrays or nested data in an object, the spread operator makes a deep copy of top-level data 
+            and a shallow copy of the nested data. Using this operator makes the code concise and enhances its readability.
+            - Spread operator works with arrays and objects
+        */
+    </script>
+</html>
