@@ -1,0 +1,67 @@
+<html>
+    <script>
+        //Example 1
+        console.log("----------Example 1---------------")
+        function display1(n){
+            console.log(n)       //undefined -> as function called without parameter and there's no default value set to the argument
+        }
+        
+        display1();
+
+        //Example 2
+        console.log("----------Example 2---------------")
+        function display2(n=10){
+            console.log(n)
+        }
+        display2()      //10
+        
+        //Example 3
+        console.log("----------Example 3 ---------------")
+        function display3(x=10, y=20){
+            console.log(x + " " + y)
+        }
+        display3()
+        display3(20, 30)
+        display3(20)
+        display3(undefined, 30)
+
+        //Example 4 with arrow function
+        console.log("----------Example 4---------------")
+        const display4 = (x = 10, y = 20) => console.log(x + " " + y)
+        display4(),
+        display4(20, 40)
+
+        //Example 5
+        console.log("----------Example 5 with variable as function parameter ---------------")
+        let val = 2;
+        function display5(x = 20, y = x * val){
+            console.log(x + " " + y) 
+        }
+        display5()
+        display5(10)
+
+        //Example 6
+        console.log("----------Example 6 with function as function parameter ---------------")
+        const bonus = () => 100;
+        function display6(x = 10, y = bonus()){
+            console.log(`${x} ${y}`)
+        }
+        display6()
+        display6(50)
+        display6(40, 60)
+
+        //Example 7
+        console.log("----------Example 7 arrow function with function as function parameter ---------------")
+        const getNumber = (n) => n;
+        const display7 = (x = 20, y = getNumber()) => console.log(`${x} ${y}`)
+        display7();         //20 undefined
+        display7(50, 20)    //50 20
+
+
+        /* Note
+            - Variables / functions can be used to assign defalut values to function parameters
+            - default parameters will not be considered as part of argument list.
+            - arguments are nothing but the values passed to a function at the time of calling it.
+        */
+    </script>
+</html>
