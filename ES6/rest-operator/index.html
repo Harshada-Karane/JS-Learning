@@ -1,0 +1,39 @@
+<html>
+    <script>
+        //Example 1
+        console.log("--------------------- Example 1 ---------------------")
+        function sum(a, b){
+            console.log(a + b)
+        }
+        sum(10, 20)             // 30
+        sum(10, 20, 30, 40)     // 30
+        /* In the above code, no error will be thrown even when we are passing arguments more than the parameters, 
+        but only the first two arguments will be evaluated. */
+
+        //Example 2
+        console.log("--------------------- Example 2 ---------------------")
+        function display1(...numbers){                  // ...numbers will return all function arguments as a single array
+            console.log(numbers)                        //[10, 20, 30] -> returns an array
+            numbers.forEach((i) => console.log(i))
+        }
+        display1(10, 20, 30)
+
+        //Example 3
+        console.log("--------------------- Example 2 ---------------------")
+        function display2(x, y, ...z){
+            console.log(`${x} ${y}`)            //10 20
+            console.log(z)                      //[30, 40, 50]
+        }
+        display2(10, 20, 30, 40, 50)
+        
+
+        /* Note:
+            - Rest operator allows "function" to accept indefinite number of arguments as an "array"
+            - improved the ability to handle parameters
+        ### - function display2(a, ...b, c){} -> this will throw an error because 
+                the rest parameter has to be the last argument, as its job is to collect all the remaining arguments into an array. 
+        */
+    </script>
+</html>
+
+
