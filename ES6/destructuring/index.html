@@ -1,27 +1,32 @@
 <html>
     <script>
         //Example 1 - Array destructuring
+        console.log("-------------------------- Example 1 -------------------------- ")
         let arr1 = ['Max', 'Joseph'],
             [fname, lname] = arr1;
         console.log(`${fname} ${lname}`)
 
         //Example 2
+        console.log("-------------------------- Example 2 -------------------------- ")
         let arr2 = ['Max', 'Joseph'],
             [f_name, l_name, gender] = arr2;
         console.log(`${f_name} ${l_name} ${gender}`)    //gender -> undefined
 
         //Example 3
+        console.log("-------------------------- Example 3 -------------------------- ")
         let arr3 = ['Max'],
             [name, age=30] = arr3;
         console.log(`${f_name} ${age}`)
 
         //Example 4
+        console.log("-------------------------- Example 4 -------------------------- ")
         let arr4 = ['Max', 'Joseph', 'Male', 30],
         [, , _gender] = arr4;               //access specific elements
         console.log(_gender)
 
 
         //Example 5 - Object destructuring
+        console.log("-------------------------- Example 5 -------------------------- ")
         let person = {
             first_name : 'Jack',
             last_name : 'Jil',
@@ -32,5 +37,39 @@
         console.log(first_name)
         console.log(l);
         console.log(score)
+
+        //Example 6
+        console.log("-------------------------- Example 6 -------------------------- ")
+        const arr = [1, 2, 3, 4, 5];
+        const [a, b, ...rest] = arr;
+        console.log(a);         //1
+        console.log(b);         //2
+        console.log(rest);      //[3, 4, 5] -> returns array
+        console.log(...rest);   //3, 4, 5   -> retuens elements 
+
+        //Example 7
+        console.log("-------------------------- Example 7 -------------------------- ")
+        function calculate(a, b){
+            return [a + b, a * b, a / b ]
+        }
+
+        const [add, multiply, division = 'test'] = calculate(3, 5);
+        console.log(add);           //8
+        console.log(multiply);      //15
+        console.log(division);      //0.6
+
+        //Example 8
+        console.log("-------------------------- Example 8 -------------------------- ")
+        const emp = {
+            emp_name: "John",
+            emp_age: 40,
+            emp_address: {
+                city: "Bangalore"
+            }
+        };
+        const { emp_name } = emp
+        console.log(emp_name);          //John
+        const {emp_address} = emp;
+        console.log(emp_address)        //{city : 'Bangalore'}
     </script>
 </html>
