@@ -1,0 +1,87 @@
+<html>
+    <script>
+        //Example 1 - Classes
+        console.log("-------------------- Example 1 -----------------------------")
+        class Person{
+            //constructor method
+            constructor(name){
+                this.name = name;
+                console.log(this.name);
+            }
+
+            //static method
+            static staticMethod(){
+                console.log("Static method")
+            }
+
+            //Prototype method
+            greet(){
+                console.log("Hello " + this.name)
+            }
+        }
+
+        let p = new Person("Nysa");         //constructor will be called
+        Person.staticMethod();              //Static method can be called without creating the object of the class
+        p.greet()
+
+        /* Note 
+            - typeof <class> => function
+            - classes are special type of function 
+            - classes are not hoisted (cannot be used before declaration)
+            - in ES6, only methods can be decalred inside body not properties
+            - class can have only one constructor
+        ### - Static method can be called without instantiating the class
+        */
+        
+        //Example 2 - Inheritance
+        console.log("-------------------- Example 2 -----------------------------")
+        class Employee{
+            constructor(name){
+                console.log(name)
+            }
+        }
+
+        class Worker extends Employee{}
+
+        let w = new Worker("Joseph")        //Parent class constructor invoked bcz of inheritance
+
+        //Example 3 - Inheritance
+        console.log("-------------------- Example 3 -----------------------------")
+        class Person2{
+            constructor(name){
+                console.log(`${name} Parent Constructor`)
+            }
+            getId(){
+                return 10;
+            }
+        }
+
+        class Employee2 extends Person2{
+            constructor(name){
+                super(name)                                 //call Parent's constructor
+                console.log(`${name} Child Constructor`)
+            }
+            getId(){
+                //return 50;
+                return super.getId()            
+            }
+        }
+
+        let emp = new Employee2("Jai")
+        console.log(emp.getId())                //10 if method is not declared in child class
+                                                //50 if method is declared in child class
+                                                //with the help of super keyword Parent class method will be invoked
+
+        /* 
+            - If the method not present in child class it will try searching the m,ethod in Parent class.
+            - If method with same name is present in both Parent and child class then child class method will be called and to call Parentr class method 
+            make use of super keyword
+        */
+        
+
+        /* Note 
+            - If Parent and child class both have contructor then super key should be declared in the child class which 
+            will call Parent's constructor otherwise error
+        */
+    </script>
+</html>
