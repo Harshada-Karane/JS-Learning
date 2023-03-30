@@ -1,0 +1,38 @@
+<html>
+    <script>
+        const volume = (l, b, h) => l * b * h
+        console.log(`Volume calculated using regular JS function -> ${volume(2, 2, 2)}`)
+
+        function calculateVolume(l){
+            return function(b) {
+                return function(h){
+                    return l * b * h
+                }
+            }
+        }
+
+        console.log(`Volume calculated using JS Currying -> ${calculateVolume(3)(3)(3)}`)
+
+        const vol = l => b => h => {
+            return l * b * h
+        }
+        console.log(`Volume calculated using JS Currying with arrow function -> ${vol(2)(2)(2)}`)
+
+        /* Note 
+            -   functional programming technique, developed by American Mathematician Haskell Curry thats why called as 'Currying'
+            -   transformation of function with multiple arguments into several functions with single argument in a sequence
+            -   basically, wrapping a function inside other function 
+
+            Advantages
+            -   helps avoid passing same variable multiple times 
+            -   helps to create a higher order function
+
+            # Higher order function (HOF) -> is a function that accepts function as parameters and/or returns a function as a result
+                -   advantage is reusability which is primarily used in array methods like map, reduce 
+                eg : map, reduce, currying etc
+
+            # Function Composition -> result of one function is passed on to the next function, which is passed tp another function until the final funtion is executed the final result
+
+        */
+    </script>
+</html>
