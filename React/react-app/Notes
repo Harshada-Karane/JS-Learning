@@ -1,0 +1,40 @@
+# package.json
+    devDependencies
+        - used only for development
+        - not going to deploy in the application
+
+# tsconfig.json
+    - contains settings which tells typescript compiler how to compile the code in javascript
+
+# extension for typescript files
+    .ts -> used for plain typescript files
+    .tsx -> mainly used for react components
+
+
+-   Components can be class / function based. 
+    Function based components are most commponly used nowadays. because its more concise
+
+-   Follow 'PascalCasing' naming conention for component names
+
+# JSX syntax - JavaScript XML
+    https://babeljs.io/repl -> shows hows JSX works under the hood
+
+# React vs ReactDOM
+-   React and ReactDOM were split into two libraries due to the arrival of React Native.
+-   React contains functionality utilised in web and mobile apps
+-   ReactDOM functionality is utilised only in web apps
+
+# React
+-   is a JavaScript LIBRARY for building user interfaces whereas Angular/Vue are framworks
+-   good at only creating UI interfaces
+
+# Library - provides a specific functionality
+# Framework - set of tools which provide guidelines to build apps
+
+along with React we use
+- Routing
+- HTTP
+- Managing app state
+- Internationalization
+- Form Validation 
+- Amnimation etc
