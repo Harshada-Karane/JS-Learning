@@ -1,3 +1,10 @@
+# Command to create a react project 
+    npm create vite@4.1.0
+    - give project name
+    - select framework -> React
+    - select variant -> TypeScript
+    - navigate to the folder and run npm i command
+
 # package.json
     devDependencies
         - used only for development
@@ -38,3 +45,12 @@ along with React we use
 - Internationalization
 - Form Validation 
 - Amnimation etc
+
+# install bootstrap for styling the component
+npm i bootstrap@5.2.3
+
+# cmd + d -> to modify multiple words in one shot
+
+- Component can't return more than one element
+- Use Fragment in case of multiple elements
+  bcz Fragment will not create additional element in the DOM
