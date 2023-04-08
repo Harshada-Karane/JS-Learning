@@ -1,0 +1,42 @@
+<html>
+    <script>
+        console.log(parseInt('100px'))  //100
+        console.log(Number('100px'))    //NaN
+        
+        console.log(parseInt())         //NaN
+        console.log(Number())           //0
+        
+        console.log(parseInt(null))     //NaN        
+        console.log(Number(null))       //0
+        
+        console.log(parseInt(undefined))//NaN    
+        console.log(Number(undefined))  //NaN
+        
+        console.log(parseInt(''))       //NaN
+        console.log(Number(''))         //0
+
+        console.log(parseInt(true))     //NaN
+        console.log(Number(true))       //1
+
+        console.log(typeof new Number(2))   //object
+        console.log(typeof 2)           //Number
+        //hence new Number(2) === 2     //false
+        //new Number(2) == 2            //true
+    </script>
+</html>
+
+<!-- 
+    Note:
+        -   Number() converts the type whereas parseInt parses the value
+        -   parseInt parses till first non-digit character however Number() will try to convert the entire string
+        -   parseInt accepts 2 parameters -> 2nd parameter indicates radix
+        -   radix -> specifies the number system to use.
+            2 - binary
+            8 - octal
+            10 - decimal (default)
+            16 or (0x) - hexadecimal
+
+
+        - Data types in JS
+        Numbers, String, Boolean, Undefined, Null, Object, Symbol, BigInt
+-->
