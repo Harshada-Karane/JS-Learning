@@ -54,3 +54,9 @@ npm i bootstrap@5.2.3
 - Component can't return more than one element
 - Use Fragment in case of multiple elements
   bcz Fragment will not create additional element in the DOM
+
+# JavaScript modules -> allow you to break up your code into separate files.
+
+true && 1 -> 1
+true && 'Bob' -> Bob
+false && 1 -> false
