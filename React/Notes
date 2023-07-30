@@ -60,3 +60,687 @@ npm i bootstrap@5.2.3
 true && 1 -> 1
 true && 'Bob' -> Bob
 false && 1 -> false
+
+
+# React - JS lib for building user interfaces
+
+Commonly faced problems with React
+https://jscomplete.com/learn/react-beyond-basics/react-cfp
+
+
+# Why React -> Its declarative
+
+# 3 basic concepts
+1. Components - either Function (more powerful) / Class (2 types)
+    - like a function
+    - Input - props, state | Output - UI
+    - Reusable and composable (nested components)
+    - manage Private state
+    - invoke using <Component />
+
+2. Reactive updates
+    - updates browser automatically whenever there is a change
+
+3. virtual views in memory
+    - Uses JS to generate HTML
+
+
+React syntax is converted into JSX internally 
+<div class="container"></div> => React.createElement("div", {className : "container"})
+
+# Practice IDE
+ - https://jscomplete.com/playground -> it has 'mountNode' dom element by default
+ - Add 'react devtools extension' chrome extension. React icon will be visible
+ - Click on the extension and reload playground window. Icon color will change to 'Red'
+
+## Compiler called Babel used to convert JSX to React API call so the browser will understand the code
+    - go to babeljs.io -> select try it out tab
+    - make sure 'react' preset is selected from left side menus
+    - Paste the JSX value
+        eg. <div>Hello World</div>   => React.createElement("div", null, "Hello World");
+
+## Component name should start with capital letter
+
+# Q : Create incremental button
+- have to use state object for this. Method is called as useState()
+- useState() returns 2 things
+    -> state object (getter) -> can be of any type string/number etc
+    -> updater function (setter)
+
+Soln : 
+function Button(){
+  const [counter, setCounter] = useState(0)
+  return <button onClick={() => setCounter(counter + 1)}>{counter}</button>
+}
+
+ReactDOM.render(
+  <Button />,
+  document.getElementById("mountNode")
+)    
+
+# Multiple components
+function Button(){
+  return <button>+1</button>
+}
+
+function Display(){
+  return <div>....</div>
+}
+ReactDOM.render(
+  [<Button />, <Display />],                ------> used array
+  document.getElementById("mountNode")
+)
+
+# OR
+ReactDOM.render(
+  <div>               ----> wrap inside div (however this will create extra DOM element hence not a best practice)
+    <Button />
+    <Display />
+  </div>,  
+  document.getElementById("mountNode")
+)
+
+# OR
+ReactDOM.render(
+  <>                ------> used Fragments
+    <Button />
+    <Display />
+  </>,  
+  document.getElementById("mountNode")
+)
+
+# Example of Data flow from Parent to child component ***
+
+# Q: Create incremental button and display the counter below
+Soln : 
+function Button(props){
+  return <button onClick={props.onClickFunction}>+1</button>
+}
+
+function Display(props){
+  return <div>{props.message}</div>
+}
+
+function App(){
+  const [counter, setCounter] = useState(10)
+  const fnIncrement = () => setCounter(counter + 1)
+  return (
+    <>
+      <Button onClickFunction={fnIncrement}/>
+      <Display message={counter}/>
+    </>
+  )
+}
+
+ReactDOM.render(
+  <App />,  
+  document.getElementById("mountNode")
+)
+
+
+# Q : Function Parameters
+
+function Button(props){
+  const handleClick = () => props.onClickFunction(props.increment)
+  return <button onClick={handleClick}>{props.increment}</button>
+}
+
+function Display(props){
+  return <div>{props.message}</div>
+}
+
+function App(){
+  const [counter, setCounter] = useState(0)
+  const fnIncrement = (i) => setCounter(counter + i)
+  return (
+    <>
+      <Button onClickFunction={fnIncrement} increment={1}/>
+      <Button onClickFunction={fnIncrement} increment={2}/>
+      <Button onClickFunction={fnIncrement} increment={10}/>
+      <Display message={counter}/>
+    </>
+  )
+}
+
+ReactDOM.render(
+  <App />,  
+  document.getElementById("mountNode")
+)
+
+
+# Tree Reconciliation in Action
+
+# Note - In HTML example complete DOM is getting refreshed after an interval, hence we were not able to type in
+# however in React example its changing only the timestamp not the whole DOM so we are able to type the value
+## check the inspector and see the refresh behaviour for better understanding
+const render = () => {
+  document.getElementById("mountNode").innerHTML = `
+  <div> 
+      Hello HTML
+      <input />
+      <pre>${(new Date).toLocaleTimeString()}</pre>
+  </div>
+`;
+
+ReactDOM.render(
+  React.createElement(
+    "div", 
+    null, 
+    "Hello React",
+    React.createElement('input', null),
+    React.createElement('pre', null, (new Date).toLocaleTimeString())
+  ), 
+  document.getElementById('mountNode2')
+);
+}
+
+setInterval(render, 1000)
+
+
+## Modern JS concepts
+https://jscomplete.com/learn/complete-intro-modern-javascript
+
+
+## Object declaration - modern JS
+const variable = 'answer'
+const obj = {
+  x : 10,
+  y : 20,
+  f1() {},
+  f2 : () => {},
+  [variable] : 42  
+};
+
+console.log(obj.variable);          //undefined 
+console.log(obj.answer)             //42
+
+
+# Modern JS concepts
+- Variables and block scope
+- Arrow Functions
+- Array methods ->. map, filter, includes, set etc
+- Object Literals
+- Destructuring and Rest Operators
+- Template Strings
+- classes
+- Promises
+- Async and await
+
+
+# Q : GitHub Card app using Class component
+
+API - https://api.github.com/users/
+# ------- step 1 -----------------
+class Card extends React.Component{
+  render(){
+    return (
+      <div className="profile">
+        <img src="https://placehold.it/75" />
+        <div className="info">
+          <div className="name">Name</div>
+          <div className="company">Company</div>
+        </div>
+      </div>
+    )
+  }
+}
+
+class App extends React.Component{
+  render(){
+    return(
+      <>
+        <div className="header">{this.props.title}</div> 
+        <Card />
+      </>  
+    )
+  }
+}
+
+ReactDOM.render(
+  <App title="GitHub Card App"/>,
+  document.getElementById('mountNode')
+)
+
+
+-------- CSS ----------
+.profile{
+  margin : 1rem,
+}
+
+.info {
+  display : inline-block;
+  margin-left : 12px;
+}
+
+img {
+  width : 75px;
+}
+
+
+## JavaScript CSS style
+class Card extends React.Component{
+  render(){
+    return (
+      <div className="profile">
+        <img src="https://placehold.it/75" />
+        <div className="info">
+          <div className="name" style={{fontSize : '20px'}}>Name</div>
+          <div className="company" style={{fontSize : '14px'}}>Company</div>
+        </div>
+      </div>
+    )
+  }
+}
+
+## Note - 'style' is the special React property
+
+
+# ----------- step 2 Display only 1st Person data manually-------------
+const testData = [{
+  "name": "Tom Preston-Werner",
+  "company": "@chatterbugapp, @redwoodjs, @preston-werner-ventures ",
+  "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4"
+},{
+  "name": "Chris Wanstrath",
+  "company": null,
+  "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4"
+}]
+
+const CardList = (props) => (
+  <>
+    <Card /> 
+    <Card /> 
+  </>  
+)
+
+class Card extends React.Component{
+  render(){
+    const profile = testData[0]
+    return (
+      <div className="profile">
+        <img src={profile.avatar_url} />
+        <div className="info">
+          <div className="name" style={{fontSize : '20px'}}>{profile.name}</div>
+          <div className="company" style={{fontSize : '14px'}}>{profile.company}</div>
+        </div>
+      </div>
+    )
+  }
+}
+
+class App extends React.Component{
+  render(){
+    return(
+      <>
+        <h2 className="header">{this.props.title}</h2> 
+        <CardList />
+      </>  
+    )
+  }
+}
+
+ReactDOM.render(
+  <App title="GitHub Card App"/>,
+  document.getElementById('mountNode')
+)
+
+# ------------ step 3 Display all records from testData using props ------------
+const testData = [{
+  "name": "Tom Preston-Werner",
+  "company": "@chatterbugapp, @redwoodjs, @preston-werner-ventures ",
+  "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4"
+},{
+  "name": "Chris Wanstrath",
+  "company": null,
+  "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4"
+}]
+
+const CardList = (props) => (
+  <>
+    <Card {...testData[0]}/> 
+    <Card {...testData[1]}/> 
+  </>  
+)
+
+class Card extends React.Component{
+  render(){
+    const profile = this.props
+    return (
+      <div className="profile">
+        <img src={profile.avatar_url} />
+        <div className="info">
+          <div className="name" style={{fontSize : '20px'}}>{profile.name}</div>
+          <div className="company" style={{fontSize : '14px'}}>{profile.company}</div>
+        </div>
+      </div>
+    )
+  }
+}
+
+class App extends React.Component{
+  render(){
+    return(
+      <>
+        <h2 className="header">{this.props.title}</h2> 
+        <CardList />
+      </>  
+    )
+  }
+}
+
+ReactDOM.render(
+  <App title="GitHub Card App"/>,
+  document.getElementById('mountNode')
+)
+
+
+# --------- step 4 dynamically display all profiles ----------
+const testData = [{
+  "name": "Tom Preston-Werner",
+  "company": "@chatterbugapp, @redwoodjs, @preston-werner-ventures ",
+  "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4"
+},{
+  "name": "Chris Wanstrath",
+  "company": null,
+  "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4"
+}, {
+  "name": "Yehuda Katz",
+  "company": "@tildeio ",
+  "avatar_url": "https://avatars.githubusercontent.com/u/4?v=4"
+}]
+
+const CardList = (props) => (
+  <>
+   {testData.map(profile => <Card {...profile}/>)}
+  </>  
+)
+
+class Card extends React.Component{
+  render(){
+    const profile = this.props
+    return (
+      <div className="profile">
+        <img src={profile.avatar_url} />
+        <div className="info">
+          <div className="name" style={{fontSize : '20px'}}>{profile.name}</div>
+          <div className="company" style={{fontSize : '14px'}}>{profile.company}</div>
+        </div>
+      </div>
+    )
+  }
+}
+
+class App extends React.Component{
+  render(){
+    return(
+      <>
+        <h2 className="header">{this.props.title}</h2> 
+        <CardList />
+      </>  
+    )
+  }
+}
+
+ReactDOM.render(
+  <App title="GitHub Card App"/>,
+  document.getElementById('mountNode')
+)
+
+# --------- step 5 Add form component and constructor to make testdata global-------------
+const testData = [{
+  "name": "Tom Preston-Werner",
+  "company": "@chatterbugapp, @redwoodjs, @preston-werner-ventures ",
+  "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4"
+},{
+  "name": "Chris Wanstrath",
+  "company": null,
+  "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4"
+}, {
+  "name": "Yehuda Katz",
+  "company": "@tildeio ",
+  "avatar_url": "https://avatars.githubusercontent.com/u/4?v=4"
+}]
+
+const CardList = (props) => (
+  <>
+   {props.profiles.map(profile => <Card {...profile}/>)}
+  </>  
+)
+
+class Card extends React.Component{
+  render(){
+    const profile = this.props
+    return (
+      <div className="profile">
+        <img src={profile.avatar_url} />
+        <div className="info">
+          <div className="name" style={{fontSize : '20px'}}>{profile.name}</div>
+          <div className="company" style={{fontSize : '14px'}}>{profile.company}</div>
+        </div>
+      </div>
+    )
+  }
+}
+
+class Form extends React.Component{
+  render(){
+    return (
+      <form>
+        <input type="text" placeholder="GitHub Username"></input>
+        <button>Add Card</button>
+      </form>  
+    )
+  }
+}
+
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    //'state' is the React property
+    this.state = {
+      profiles : testData
+    }
+  }
+  render(){
+    return(
+      <>
+        <h2 className="header">{this.props.title}</h2> 
+        <Form />
+        <CardList profiles={this.state.profiles}/>
+      </>  
+    )
+  }
+}
+
+ReactDOM.render(
+  <App title="GitHub Card App"/>,
+  document.getElementById('mountNode')
+)
+
+
+# ------- step 6 Add form submit action & taking input from user -----------
+const testData = [{
+  "name": "Tom Preston-Werner",
+  "company": "@chatterbugapp, @redwoodjs, @preston-werner-ventures ",
+  "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4"
+},{
+  "name": "Chris Wanstrath",
+  "company": null,
+  "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4"
+}, {
+  "name": "Yehuda Katz",
+  "company": "@tildeio ",
+  "avatar_url": "https://avatars.githubusercontent.com/u/4?v=4"
+}]
+
+const CardList = (props) => (
+  <>
+   {props.profiles.map(profile => <Card {...profile}/>)}
+  </>  
+)
+
+class Card extends React.Component{
+  render(){
+    const profile = this.props
+    return (
+      <div className="profile">
+        <img src={profile.avatar_url} />
+        <div className="info">
+          <div className="name" style={{fontSize : '20px'}}>{profile.name}</div>
+          <div className="company" style={{fontSize : '14px'}}>{profile.company}</div>
+        </div>
+      </div>
+    )
+  }
+}
+
+class Form extends React.Component{
+  state = {userName : ""};
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state.userName);
+  }
+  render(){
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input 
+          type="text" 
+          placeholder="GitHub Username"
+          value={this.state.userName}
+          onChange={event => this.setState({userName : event.target.value})}
+          ></input>
+        <button>Add Card</button>
+      </form>  
+    )
+  }
+}
+
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      profiles : testData
+    }
+  }
+  render(){
+    return(
+      <>
+        <h2 className="header">{this.props.title}</h2> 
+        <Form />
+        <CardList profiles={this.state.profiles}/>
+      </>  
+    )
+  }
+}
+
+ReactDOM.render(
+  <App title="GitHub Card App"/>,
+  document.getElementById('mountNode')
+)
+
+# -------- step 7 --------
+/* const testData = [{
+  "name": "Tom Preston-Werner",
+  "company": "@chatterbugapp, @redwoodjs, @preston-werner-ventures ",
+  "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4"
+},{
+  "name": "Chris Wanstrath",
+  "company": null,
+  "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4"
+}, {
+  "name": "Yehuda Katz",
+  "company": "@tildeio ",
+  "avatar_url": "https://avatars.githubusercontent.com/u/4?v=4"
+}] */
+
+//gaearon
+const CardList = (props) => (
+  <>
+   {props.profiles.map(profile => <Card key={profile.id} {...profile}/>)}
+  </>  
+)
+
+class Card extends React.Component{
+  render(){
+    const profile = this.props
+    return (
+      <div className="profile">
+        <img src={profile.avatar_url} />
+        <div className="info">
+          <div className="name" style={{fontSize : '20px'}}>{profile.name}</div>
+          <div className="company" style={{fontSize : '14px'}}>{profile.company}</div>
+        </div>
+      </div>
+    )
+  }
+}
+
+class Form extends React.Component{
+  state = {userName : ""};
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    const response = await axios.get(`https://api.github.com/users/${this.state.userName}`)
+    //console.log(response.data);
+    this.props.onSubmit(response.data)
+    this.setState({userName : ""})
+    
+  }
+  render(){
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input 
+          type="text" 
+          placeholder="GitHub Username"
+          value={this.state.userName}
+          onChange={event => this.setState({userName : event.target.value})}
+          ></input>
+        <button>Add Card</button>
+      </form>  
+    )
+  }
+}
+
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      profiles : []
+    }
+  }
+  addNewProfile = (profileData) => {
+    this.setState(prevState => ({
+      profiles : [...prevState.profiles, profileData]
+    }))
+  }
+  render(){
+    return(
+      <>
+        <h2 className="header">{this.props.title}</h2> 
+        <Form onSubmit={this.addNewProfile}/>
+        <CardList profiles={this.state.profiles}/>
+      </>  
+    )
+  }
+}
+
+ReactDOM.render(
+  <App title="GitHub Card App"/>,
+  document.getElementById('mountNode')
+)
+
+
+# map example with React
+function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =>
+    <li>{number}</li>
+  );
+  return (
+    <ul>{listItems}</ul>
+  );
+}
+const numbers = 
+ReactDOM.render(
+  <NumberList numbers={[1, 2, 3, 4]}/>,
+  document.getElementById('mountNode')
+)
