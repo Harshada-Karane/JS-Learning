@@ -1,0 +1,73 @@
+<html>
+    <script>
+        console.log("------------ Example 1 ------------")
+        const num = [1, 2, 3]
+        num.map( i => console.log(i * 10))
+
+        console.log("------------ Example 2 ------------")
+        const persons = [{
+            firstName : "Mary",
+            lastName : "Benz"
+        }, {
+            firstName : "Neera",
+            lastName : "Joy"
+        }]
+
+        persons.map(i => {
+            console.log([i.firstName, i.lastName].join(" "))
+        })
+        /* Output :
+            Mary Benz
+            Neera Joy
+        */
+
+        console.log("------------ Example 3 ------------")
+        const numbers = [4, 9, 16];
+        numbers.map( i => console.log(Math.sqrt(i)))
+        /* Output :
+            2
+            3
+            4
+        */
+
+        console.log("------------ Example 4 ------------")
+        const fruits = [{
+            id : 1,
+            name : "Mango"
+        }, {
+            id : 2,
+            name : "Apple"
+        }]
+        const formattedFruits = fruits.map(({id, name}) => ({ [id] : name}))
+        console.log(formattedFruits)
+        /* Output :
+            [{
+                1 : 'Mango'
+            },{
+                2 : 'Apple'
+            }]
+
+        */
+
+        console.log("------------ Example 5 : non-array objects ------------")
+        const str = {
+            length: 3,
+            0: 2,
+            1: 3,
+            2: 4,
+            3: 5, // ignored by map() since length is 3
+        }
+        const newStr = Array.prototype.map.call(str, (i) => i * 2)
+        console.log(newStr)         //[4, 6, 8]
+
+        
+
+
+        /* NOTE
+        - map() creates a new array from calling a function for EVERY array element.
+        - it does not execute the function for empty elements
+        - it does not change the original array 
+
+        */
+    </script>
+</html>
