@@ -6,7 +6,26 @@
         let a2 = ["Welcome"];
         let a3 = [...a1, ...a2];
         console.log(a3)
-        // ---------------- Example 2 ----------------
-        
+
+
+        // ---------------- Example 2 let vs var----------------
+        //Redeclaring a variable with let in a different scope or block treats that variable as a different variable. And the value of a variable outside does not change
+        for(let i=0; i< 3; i++){
+            setTimeout(function(){
+                //alert(i)                    //0 1 2
+            }, 1000 + i)
+        }
+        //Redeclaring a variable with var in a different scope or block changes the value of the outer variable too.
+        for(var i=0; i< 3; i++){
+            setTimeout(function(){
+                //alert(i)                    //3
+            }, 1000 + i)
+        }
+
+        (function(){
+            let a = b = 3;
+        })();
+        console.log("a defined ?" + (typeof a !== "undefined"))
+        console.log("b defined ?" + (typeof b !== "undefined"))
     </script>
 </html>

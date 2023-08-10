@@ -257,14 +257,16 @@ console.log(obj.answer)             //42
 
 # Modern JS concepts
 - Variables and block scope
+- Data types and typeof
 - Arrow Functions
-- Array methods ->. map, filter, includes, set etc
+- Array methods ->. map, filter, includes, reduce, set etc
 - Object Literals
 - Destructuring and Rest Operators
 - Template Strings
 - classes
 - Promises
 - Async and await
+- Closures
 
 
 # Q : GitHub Card app using Class component
@@ -744,3 +746,37 @@ ReactDOM.render(
   <NumberList numbers={[1, 2, 3, 4]}/>,
   document.getElementById('mountNode')
 )
+
+
+# useState cannot be nested, cannot be part of condition. Should be used top level
+
+function Initial(){
+  console.log("Run function")
+  return 4
+}
+
+function App(){
+  const [count, setCount] = useState(Initial())       //Every time will call the function
+  
+  /*
+    const [count, setCount] = useState(() => {        //Function will call only once
+      console.log("Run function")
+      return 4
+    });  
+  */
+  function decrementCount() {
+    setCount(prevCount => prevCount - 1)
+  }
+  function incrementCount(){
+    setCount(prevCount => prevCount + 1)
+  }
+  return (
+    <>
+      <button onClick={decrementCount}>-</button>
+      <span>{count}</span>
+      <button onClick={incrementCount}>+</button>
+    </>
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById('mountNode'))

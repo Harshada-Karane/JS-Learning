@@ -1,0 +1,46 @@
+Source - InterviewBit
+# What is React / advantages
+- open source JS lib
+- uses virtual DOM instead of Real which improves efficiency.
+- uses reusable/compoable components to build UI
+- SEO friendly
+- freedom to choose tools, libraries and architecture for developing
+
+# What is useState()
+- built in React hook
+- Should be used when the DOM is changing dynamically
+
+    Example :
+        function Button(){
+            const [counter, setCounter] = useState(0)
+            return <button onClick={() => setCounter(counter + 1)}>{counter}</button>
+        }
+
+        ReactDOM.render(<Button />, document.getElementById("mountNode"))  
+
+# What are keys in React
+- string attribute that needs to be included when using lists of elements
+- provides a unique identity for each element
+- With Keys, React has an idea of which particular element was added/ changed / deleted
+- Without Keys, React doesn't understand the order or uniquness of each element
+- Avoid using Array index as the key
+
+# What is JSX
+- stands for JavaScript XML
+- allows to write HTML inside JS
+
+    Example :
+    # without JSX
+    const text = React.createElement('div', {}, 'Hello World')
+    ReactDOM.render(text, rootElement)
+
+    # with JSX
+    const text = (
+        <div>Hello World</div>
+    )
+    ReactDOM.render(text, rootElement)
+
+
+# React Hooks
+- useState
+- useEffect
