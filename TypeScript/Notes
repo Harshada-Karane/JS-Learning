@@ -1,0 +1,25 @@
+# TypeScript
+    - it's a JS with Type checking
+    - build on top of JS
+
+# Statically Typed -> C++, Java
+    ex :    int num = 10       // type integer
+            num = "x"          // not allowed as num is already declared as type int
+
+# Dynamically Typed -> JS, Python 
+    ex :    let x = 10;
+            x = "hello"         // allowed in JS
+
+# Command to run 
+    tsc index.ts -> creates corresponding index.js file automatically
+
+# Coomand to initialize TypeScript compiler
+    tsc --init -> creates tsconfig.json file
+
+any
+number
+tuples
+enum
+function
+
+-> strictly checks the number of parameters passed in function
