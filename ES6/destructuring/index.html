@@ -1,5 +1,18 @@
 <html>
     <script>
+
+        //Old approach to access elements
+        let x = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+        console.log(x[0])
+        console.log(x[2])
+
+        //Modern approach
+        let [a1, b1, , d1, ...others] = x
+        console.log(a1);
+        console.log(b1);
+        console.log(d1);
+        console.log(others)
+
         //Example 1 - Array destructuring
         console.log("-------------------------- Example 1 -------------------------- ")
         let arr1 = ['Max', 'Joseph'],
@@ -71,5 +84,53 @@
         console.log(emp_name);          //John
         const {emp_address} = emp;
         console.log(emp_address)        //{city : 'Bangalore'}
+
+        //Example 9 - Object Destructuring
+        console.log("-------------------------- Example 9 -------------------------- ")
+        let p1 = {
+            personName : "Maria",
+            personAge : 30,
+            address : {
+                city : "Mumbai",
+                state : "MH"
+            }
+        }
+
+        let info = {
+            hobby : "Swimming",
+            foodType : "Veg"
+        }
+
+        console.log("------------ combine 2 objects using spread operator ------------")
+        let personDetails = {...p1, ...info}
+        //let personDetails = [...p1, ...info]        //Error -> p1 is not iterable as p1 is not an array
+        console.log(personDetails)
+
+        let {personName, personAge, address : personAddress} = p1        //names should match with object key
+        console.log(personName)
+        console.log(personAge)
+        console.log(personAddress.city)
+
+        console.log("------------ destructure nested object ------------")
+        let {address : {state}} = p1
+        console.log(state)
+
+        //Inside function
+        function print(user){
+            console.log(user)           //return entire object
+        }
+        print(p1)  
+
+        //traditional approach
+        function printName(user){
+            console.log(`Name : ${user.personName} and Age : ${user.personAge}`)
+        }
+        printName(p1)
+        
+        console.log("------------ Object destructing in function call (IMP) ------------")
+        function displayName({personName, personAge, address : {city}}){
+            console.log(`Name : ${personName}, Age : ${personAge}, City : ${city}`)
+        }
+        displayName(p1)
     </script>
 </html>
