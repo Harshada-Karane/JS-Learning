@@ -1,3 +1,27 @@
+# System setup
+    -   Visual Studio Code
+    -   node
+    -   npm install -g create-react-app             Install react from terminal
+
+# After installation run below commands
+    -   node -v                                 16.20.0
+    -   npm -v                                  8.19.4
+    -   create-react-app --version              5.0.1
+
+# Command to Create react app
+    -   create-react-app <app-name>
+
+# Command to run app
+    -   navigate to the newly created project folder and run below command
+    -   npm start
+
+
+
+# Troubleshooting
+  * Failed to save file: Insufficient permissions. Select Retry as Admin to retry as administrator
+    - sudo chown -R $USER <complete folder path>
+
+----------------------------------------------------------------------------------------
 # Command to create a react project 
     npm create vite@4.1.0
     - give project name
