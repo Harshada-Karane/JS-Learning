@@ -15,13 +15,33 @@
     -   navigate to the newly created project folder and run below command
     -   npm start
 
-
-
 # Troubleshooting
   * Failed to save file: Insufficient permissions. Select Retry as Admin to retry as administrator
     - sudo chown -R $USER <complete folder path>
 
-----------------------------------------------------------------------------------------
+# Visual Studio Extension
+    - ES7+ React/Redux/React-Native snippets  -> type rafce and it will create basic code snippet
+
+
+# useEffect
+
+
+# useState
+
+
+
+
+# folder structure
+- robots.txt -> used for SEO purpose (can be ignored here)
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------
 # Command to create a react project 
     npm create vite@4.1.0
     - give project name
