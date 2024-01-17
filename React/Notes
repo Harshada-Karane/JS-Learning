@@ -35,6 +35,9 @@
 - robots.txt -> used for SEO purpose (can be ignored here)
 
 
+# Chrome Extension for React
+  - Install "React Developer Tools" Extension
+  https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-GB&utm_source=ext_sidebar
 
 
 
