@@ -2,13 +2,13 @@ import React from "react";
 import Card from "./Card";
 import data from "./Data";
 
-function createCard(val){
+/* function createCard(val){
     return (
         <Card name={val.name} 
             imageSrc={val.imageSrc} 
             link={val.link} />
     );
-}
+} */
 
 function App(){
     return (
@@ -24,7 +24,13 @@ function App(){
                   imageSrc={data[2].imageSrc} 
                   link={data[2].link} />  */}
 
-            {data.map(createCard)}      
+            {/* {data.map(createCard)}       */}
+
+            {data.map(val => {
+                return (
+                    <Card key={val.id} name={val.name} imageSrc={val.imageSrc} link={val.link} />
+                );
+            })}
         </>
     )
 }
