@@ -1,0 +1,55 @@
+<html>
+    <script>
+        /* ---------------- Example 1 ---------------- */
+        const oldArr1 = [1, 2, 3];
+        const fn1 = (elm, i) => {
+            return elm * 2;
+        }
+        const newArr1 = oldArr1.map(fn1);
+        console.log(newArr1);                                   //[2, 4, 6]
+
+        /* ---------------- Example 2 ---------------- */
+        const oldArr2 = [1, 2, 3];
+        const newArr2 = oldArr2.map((elm, i) => {
+            return `${elm * i}`;            
+        })
+        console.log(newArr2)                                    //[0, 2, 6]
+
+        /* ---------------- Example 3 ---------------- */
+        const oldArr3 = ["1", "2", "3"];
+        console.log(oldArr3.map(Number));                       //[1, 2, 3]
+
+        /* ---------------- Example 4 ---------------- */
+        let oldArr4 = [{
+            key : 1,
+            value : "John"
+        },{
+            key : 2,
+            value : "Mary"
+        }]
+        const newArr4 = oldArr4.map(({ key, value }) => ({ [key]: value }))
+        console.log(newArr4)
+
+        /* ---------------- Example 5 - sparse (empty element in array) array ---------------- */
+        console.log(
+        [1, , 3].map((x, index) => {
+            console.log(`Visit ${index}`);
+            return x * 2;
+        }),
+        );
+        // A sparse array remains sparse after map(). 
+        // The indices of empty slots are still empty in the returned array, and the callback function won't be called on them.
+    </script>
+
+    <!-- 
+        map()
+            - arr.map(callbackFunction) 
+            - callbackFunction -> takes 3 arguments
+                -> current element
+                -> index                                    (optional)
+                -> array on which map() called upon         (optional)
+    
+            - return value is a new array
+    
+    -->
+</html>
