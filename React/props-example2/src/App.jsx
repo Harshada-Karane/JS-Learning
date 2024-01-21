@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-
+const time = 10;
 const CreateCard = () => {
     const sTime = 20;
     if(sTime < 12){
@@ -12,8 +12,12 @@ const CreateCard = () => {
     }
 } 
 
-const App = () => {
-    return <CreateCard />
-}
+const App = () => (
+    <>
+        <CreateCard />
+        <h1>{ time < 12 ? "Good Morning" : "Good Evening"}</h1>
+    </>
+);
+
 
 export default App;
