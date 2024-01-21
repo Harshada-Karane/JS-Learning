@@ -21,6 +21,17 @@
 
 # Visual Studio Extension
     - ES7+ React/Redux/React-Native snippets  -> type rafce and it will create basic code snippet
+    - :emojisense: 
+      -> Open settings (left bottom corner) 
+      -> click on extensions 
+      -> select :emojisense:
+      -> click on "Edit in settings.json"
+      -> Add below code and save to enable emojis
+              "css" : true,
+              "html" : true,
+              "javascript" : true,
+              "javascriptreact" :true
+      -> type ':' and emoji popover will appear
 
 
 # useEffect
