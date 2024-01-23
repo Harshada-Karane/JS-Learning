@@ -22,12 +22,12 @@ const SlotMachine = (props) => {
     } */
 
     /*  --------------- with Ternary Operator ----------- */
-    let {x, y, z} = props;
+    let {x, y, z} = props;          // Object Destructuring
     return (
         <div className="slot">
             {   x === y && y === z ?
-                <MatchingSlotMachine x={props.x} y={props.y} z={props.z} /> : 
-                <NotMatchingSlotComponent x={props.x} y={props.y} z={props.z} />
+                <MatchingSlotMachine x={x} y={y} z={z} /> : 
+                <NotMatchingSlotComponent x={x} y={y} z={z} />
             }
         </div>
     )
