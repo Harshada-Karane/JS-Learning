@@ -40,6 +40,12 @@
 # useState
 
 
+# React Hooks
+  - Hooks are the new features introduced in 16.8
+  - Allows to use state and other features without writing a class
+  - It doesn't work inside class ****
+  - Hooks should always be used at top level of the React function
+  - Node Versrion > 6 and npm version > 5.2
 
 
 # folder structure
