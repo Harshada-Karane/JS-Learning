@@ -101,6 +101,7 @@
 # Material UI icons (run this command on app level. dependecies will get added in package.json)
   - npm install @material-ui/icons
   - npm install @material-ui/core
+  - npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
 
   https://mui.com/material-ui/material-icons/
   
