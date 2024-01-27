@@ -98,7 +98,12 @@
   https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-GB&utm_source=ext_sidebar
 
 
+# Material UI icons (run this command on app level. dependecies will get added in package.json)
+  - npm install @material-ui/icons
+  - npm install @material-ui/core
 
+  https://mui.com/material-ui/material-icons/
+  
 
 
 
