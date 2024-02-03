@@ -97,16 +97,16 @@
   - Install "React Developer Tools" Extension
   https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-GB&utm_source=ext_sidebar
 
-
 # Material UI icons (run this command on app level. dependecies will get added in package.json)
-  - npm install @material-ui/icons
-  - npm install @material-ui/core
   - npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
-
-  https://mui.com/material-ui/material-icons/
+  - https://mui.com/material-ui/all-components/ - Documentation
   
+# Bootstrap
+  - npm install bootstrap
+  - https://getbootstrap.com/docs/5.3/getting-started/introduction/ - Documentation
 
-
+# CSS Intellisence Extension in VS code for bootsrap classes
+  - IntelliSense for CSS class names in HTML - Zignd
 
 --------------------------------------------------------------------------------------
 # Command to create a react project 
