@@ -108,6 +108,13 @@
 # CSS Intellisence Extension in VS code for bootsrap classes
   - IntelliSense for CSS class names in HTML - Zignd
 
+
+# React Hook - createContext() - allows to access data at any level of the compont tree without passing props to every level
+  Requires 3 things
+  - import createContext()
+  - Provider
+  - Consumer
+
 --------------------------------------------------------------------------------------
 # Command to create a react project 
     npm create vite@4.1.0
