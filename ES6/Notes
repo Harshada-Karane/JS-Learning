@@ -1,0 +1,39 @@
+# ES6 allows 
+- to use variabls as property name
+- to have spaces in property name
+
+Example 
+let ln = "last name",
+emp = {
+    "first name" : "Jack",
+    [ln] : "Joseph"                 //variable should be enclosed in square bracket
+}
+
+console.log(emp["first name"])      //use square bracket to access obj property with spaces for ex. here "first name"
+console.log(emp)
+
+
+# enumerable in JS
+let person = {
+  firstName: 'John',
+  lastName: 'Doe',
+  age: 30
+};
+
+// Adding a non-enumerable property using Object.defineProperty()
+Object.defineProperty(person, 'email', {
+  value: 'john.doe@example.com',
+  enumerable: false
+});
+
+// Adding another property with default enumerable behavior
+person.city = 'New York';
+
+console.log(person);
+
+firstName, lastName, age, and city are enumerable properties because they are part of the object literal or added directly to the object.
+email is a non-enumerable property because it was added using Object.defineProperty() with enumerable: false.
+
+
+# Limitation of arrow function
+    -  it cannot use this, constructor, yield, and new.target.

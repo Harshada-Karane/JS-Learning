@@ -1,3 +1,53 @@
+# command to create tscconfig.json file *****
+tsc --init
+
+tsc -w -> to watch the changes in the file
+
+# Type Inference
+
+# Type alias for repeatative code
+
+# Call signature
+
+# enum
+enum Roles {
+    user = "user",
+    admin = "admin"
+}
+
+// how to access
+Roles.user
+
+
+# Tuples
+type PersonInfo = readonly [string, number, boolean]  // Best practice is to make it readonly
+
+const p1:PersonInfo = ["Mary", 20, true]
+
+
+# Intersection -> &
+
+# Union -> |
+
+# Generics -> allows to deal with multiple data types 
+
+//Function overloading with Generics
+function add<T>(a, b) : T {
+    return a + b;
+}
+const result = add<number>(2, 3)  // 5
+
+function add<T, U>(a:T, b:U) : void {
+    console.log(a + b);
+}
+
+add(2 , "Hello")  // 2 Hello
+
+# Inlay feature in VS code (feature)
+
+# Interface
+
+
 # TypeScript
     - it's a JS with Type checking
     - build on top of JS
