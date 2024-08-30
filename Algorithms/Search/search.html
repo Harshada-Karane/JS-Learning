@@ -10,9 +10,9 @@
             return -1;
         }
 
-        console.log(linearSearch([4, 2, 6, 20, 5], 2));
-        console.log(linearSearch([4, 2, 6, 20, 5], 10))
-        console.log(linearSearch([4, 2, 6, 20, 5], 6))
+        console.log(linearSearch([4, 2, 6, 20, 5], 2)); //1
+        console.log(linearSearch([4, 2, 6, 20, 5], 10)) //-1
+        console.log(linearSearch([4, 2, 6, 20, 5], 6))  //2
 
         console.log("\n------------------ Binary Search => Big-O is O(log n)--------------------");
         function binarySearch(arr, target){
@@ -31,10 +31,10 @@
             return -1
         }
 
-        console.log(binarySearch([-5, 2, 4, 6, 10], 6));
-        console.log(binarySearch([-5, 2, 4, 6, 10], 20));
+        console.log(binarySearch([-5, 2, 4, 6, 10], 6)); //3
+        console.log(binarySearch([-5, 2, 4, 6, 10], 20));//-1
 
-        console.log("\n------------------ Binary Search with Recursion => Big-O is --------------------");
+        console.log("\n------------------ Binary Search with Recursion => Big-O is O(log n)--------------------");
         function binarySearchRecusrion(arr, target){
             return search(arr, target, 0, arr.length - 1)
         }

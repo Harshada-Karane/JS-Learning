@@ -1,0 +1,60 @@
+<html>
+    <script>
+        const obj1 = {
+            name : "Teena",
+            age : 20
+        },
+        
+        obj2 = {
+            name : "Meena",
+            age : 25
+        },
+
+        print = function(city, state){
+            console.log(`${this.name} is from ${city}, ${state}`);
+        }
+        print.call(obj1, "Bangalore", "Karnataka")              
+        print.call(obj2, "Mumbai", "Maharashtra")              
+
+        print.apply(obj2, ["Mumbai", "Maharashtra"])
+
+        let printDetails = print.bind(obj1, "Bangalore", "Karnataka")
+        printDetails()
+
+
+        /* 
+            -   1st argument of call() refers to 'this' in the function
+            -   call() and apply() behaves same only difference is call takes individual arguments (line 16)
+                and apply() takes array as an argument (line 19) 
+            -   call() and bind() are same only difference is bind() create a copy of function which
+                can be invoked later. It doesn't invoke function immediately like call()
+        */
+
+        console.log(`---------------- Polyfill --------------`); 
+        let person = {
+            fname :  "Leena",
+            lname : "Roy"
+        }
+
+        let printName = function(city, state){
+            console.log(`${this.fname} ${this.lname} if from ${city}, ${state}`);
+        }
+
+        let printMyName = printName.bind(person, "Bangalore");
+        printMyName("Karnataka")
+
+        Function.prototype.myBind = function(...args){
+            let fn = this,
+                params = args.slice(1)
+            return function(...args2){
+                //fn.call(args[0])
+                //fn.apply(args[0], params)
+                fn.apply(args[0], [...params, ...args2])
+            }
+        }
+
+        let printMyName2 = printName.myBind(person, "Bangalore")
+        //printMyName2()
+        printMyName2("Karnataka")
+    </script>
+</html>

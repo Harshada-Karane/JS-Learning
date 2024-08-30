@@ -1,6 +1,7 @@
 <html>
     <script>
         console.log("\n------------------------- Fibonacci -------------------------");
+        //0 1 1 2 3 5 8
         function fibo(n){
             const series = [0, 1]
             for(let i = 2; i <= n; i++){
@@ -8,7 +9,7 @@
             }
             return series[n]
         }
-        console.log(`${fibo(5)} => Big-O is O(n) Linear Time Complexicity`)
+        console.log(`${fibo(5)} => Big-O is O(n) Linear Time Complexity`)
 
         console.log("\n---------------- Fibonacci with Recursion -------------------");
         function fibo(n){
@@ -20,6 +21,7 @@
         console.log(`${fibo(6)} => Big-O is O(2^n)`);
 
         console.log("\n------------------------- Factorial -------------------------");
+        // 3! = 3 * 2 * 1 = 6
         function fact(n){
             let result = 1;
             for(i = 2; i <= n; i++){
@@ -28,7 +30,7 @@
             return result
         }
 
-        console.log(`${fact(3)} => Big-O is O(n) Linear Time Complexicity`);
+        console.log(`${fact(3)} => Big-O is O(n) Linear Time Complexity`);
 
         console.log("\n---------------- Factorial with Recursion -------------------");
         function factRec(n){
@@ -37,7 +39,7 @@
             }
             return n * factRec(n-1)
         }
-        console.log(`${factRec(0)} => Big-O is O(n) Linear Time Complexicity`);
+        console.log(`${factRec(0)} => Big-O is O(n) Linear Time Complexity`);
 
         console.log("\n------------------------ Prime Number ----------------------");
         function isPrime(n){
@@ -52,7 +54,7 @@
             }
             return true
         }
-        console.log(`${isPrime(9)} => Big-0 is O(n) Linear Time Complexicity`);
+        console.log(`${isPrime(9)} => Big-0 is O(n) Linear Time Complexity`);
 
         console.log("\n------------------------ Prime Number (Optimal Solution)----------------------");
         function prime(n){
@@ -69,6 +71,8 @@
         console.log(`${prime(29)} => Big-O is O(sqrt(n)`);
 
         console.log("\n------------------------ Power of 2 ----------------------");
+        //8 => 2^3
+        //16 => 2^4
         function isPowerOfTwo(n){
             if(n < 1){
                 return false
@@ -82,6 +86,6 @@
             return true
         }
 
-        console.log(`${isPowerOfTwo(10)} => Big-O is O(log n) Logarithic Time Complexicity`);
+        console.log(`${isPowerOfTwo(10)} => Big-O is O(log n) Logarithic Time Complexity`);
     </script>
 </html>

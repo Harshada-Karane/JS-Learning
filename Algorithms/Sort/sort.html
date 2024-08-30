@@ -17,18 +17,18 @@
         }
         const arr = [8, 20, -2, 4]
         bubbleSort(arr)
-        console.log(arr);
+        console.log(arr); //[-2, 4, 8, 20]
 
         console.log("\n------------------ Insertion Sort => Big-O is O(n^2) Quadratic--------------------");
         function insertionSort(arr){
             for(let i = 1; i < arr.length; i++){
-                let numberToInsert = arr[i],
-                sortedElementIndex = i - 1;
-                while(sortedElementIndex >=0 && arr[sortedElementIndex] > numberToInsert){
-                    arr[sortedElementIndex + 1] = arr[sortedElementIndex];
-                    sortedElementIndex = sortedElementIndex - 1
+                let numberToInsert = arr[i],        //20    -2  
+                sortedElementIndex = i - 1;         //0      1  0
+                while(sortedElementIndex >= 0 && arr[sortedElementIndex] > numberToInsert){         //0 >=0 && 8 > 20 => False      1>=0 &&  20 > -2 => True
+                    arr[sortedElementIndex + 1] = arr[sortedElementIndex];  //arr[2] = 20
+                    sortedElementIndex = sortedElementIndex - 1             //0
                 }
-                arr[sortedElementIndex + 1] = numberToInsert
+                arr[sortedElementIndex + 1] = numberToInsert    //arr[1] = 20
             }
         }
         let insertionArr = [8, 20, -2, 4]

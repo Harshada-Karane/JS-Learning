@@ -1,0 +1,94 @@
+<html>
+    <script>
+        console.log('----------- reduce -------------');
+        //reduce method accepts 2 arguments => callback function and initial value(optional) 
+        
+        //----------- Example 1 -------------
+        const nums = [1, 2, 3, 4, 5];
+        const sum = nums.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+        console.log(`Sum : ${sum}`)                         //Output: 15
+
+        //----------- Example 2 -------------
+        const cart = [
+            {item : 'book', price : 20},
+            {item : 'pen', price : 10},
+            {item : 'pencil', price : 2}
+        ]
+        const total = cart.reduce((acc, curr) => acc + curr.price, 0)
+        console.log(`Total value : ${total}`);              //Output: 32
+
+        //----------- Example 3 -------------
+        const nestedArray = [[1, 2], [3], [4, 5, 6]]
+        const flattendArray = nestedArray.reduce((acc, curr) => acc.concat(curr))
+        console.log(flattendArray)    // Output: [1, 2, 3, 4, 5, 6]
+
+        //----------- Example 4 -------------
+        const numbers = [1, 4, 3, 8, 5];
+        const maxValue = numbers.reduce((acc, curr) => acc > curr ? acc : curr)
+        console.log(`Max value : ${maxValue}`);             // Output: 8
+
+        //----------- Example 5 -------------
+        const fruits = ["apple", "banana", "watermelon", "banana"]
+        const n = fruits.reduce((acc, f) => {
+            if(acc[f]){
+                acc[f]++
+            } else {
+                acc[f] = 1;
+            }
+            return acc
+        }, {})
+        console.log(n);                 // Output: { apple: 1, banana: 2, watermelon: 1 }
+
+
+        console.log('----------- map -------------');
+        const arr = [1, 2, 3];
+        const square = arr.map((n) => n * 2)
+        console.log(square); // Output : [2, 4, 6]
+
+        const person = [
+            {name : "Bob", age : 25},
+            {name : "Roy", age : 30},
+            {name : "Nena", age : 22}
+        ]
+        const names = person.map((i) => i.name)
+        console.log(names);             // Output : ['Bob', 'Roy', 'Nena']
+
+        console.log('----------- filter -------------');
+        const words = ["apple", "banana", "watermelon", "fig"]
+        const filteredWords = words.filter((w) => w.length > 4)
+        console.log(filteredWords);     // Output : ['apple', 'banana', 'watermelon']
+
+        console.log('----------- splice vs slice -------------');
+
+        /* 
+            Functionality:
+                slice extracts a portion of an array and returns it as a new array.
+                splice changes the original array by adding, removing, or replacing elements.
+            
+            Modification:
+                slice does not alter the original array.
+                splice modifies the original array in place.
+            
+            Return Value:
+                slice returns a new array containing the extracted elements.
+                splice returns an array of removed elements (or an empty array if no elements were removed).
+            
+            Parameters:
+                slice takes start and end indices.
+                splice takes a start index, a delete count, and optionally, new elements to add.
+        */
+
+        const arr1 = [1, 2, 3, 4, 5]            //Not modifying the original array instead returning new array ******
+        console.log(arr1.slice(1, 4))           //Output : [2, 3, 4]
+        console.log(arr1.slice(2));             //Output : [3, 4, 5]
+
+        const arr2 = [1, 2, 3, 4, 5, 6]         //Modifying the original array ******
+        console.log((arr2.splice(0, 2)));       //Output : [1, 2]
+        console.log(arr2.splice(1, 2));         //Output : [4, 5]
+        console.log(arr2.splice(0, 1));         //Output : [3]
+
+        const arr3 = [1, 2, 3, 4, 5, 6]
+        console.log(arr3.splice(1, 2, 7, 8))    //Output : [2, 3]
+        console.log(arr3);                      //Output : [1, 7, 8, 4, 5, 6]
+    </script>
+</html>
