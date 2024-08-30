@@ -1,0 +1,37 @@
+<html>
+    <script>
+        function longestCommonSubstring(s) {
+            const n = s.length;
+            let longestSubstring = "";
+            const seenSubstrings = new Set();
+
+            function hasDuplicateSubstring(len) {
+                seenSubstrings.clear();
+                for (let i = 0; i <= n - len; i++) {
+                    const substring = s.substring(i, i + len);
+                    if (seenSubstrings.has(substring)) {
+                        return substring;
+                    }
+                    seenSubstrings.add(substring);
+                }
+                return null;
+            }
+
+            let left = 1, right = n;
+            while (left <= right) {
+                const mid = Math.floor((left + right) / 2);
+                const substring = hasDuplicateSubstring(mid);
+                if (substring) {
+                    longestSubstring = substring;
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+
+            return longestSubstring;
+        }
+
+        console.log(longestCommonSubstring("banana"));
+    </script>
+</html>

@@ -1,0 +1,53 @@
+# Built-in DS
+    # Array
+        -   map, filter, reduce, slice, splice
+        -   push, pop, shift, unshift
+    
+    # Objects
+        -   Object.keys(), Object.value(), Object.entries() => return map
+   
+    # Set
+        -   scales based on number of elements
+        -   add(), delete(), has(), clear() => to delete all 
+        -   size 
+
+        => --------------------- Array vs Set ---------------------
+            -   Array can have duplicate valueas whereas Set can't
+            -   Insertion order is maintained in Array but it is not in case with Set
+            -   Searching and deleting element is faster in Set
+
+    # Map
+        -   set(), delete(), has(), clear()
+        -   size
+
+        => --------------------- Object vs Map ---------------------
+            -   Keys in Object can of type string or symbol however in Map it can be of any type
+            -   Objects are not iterable whereas Map is iterable
+            -   Apart from storing data we can attach function in Object whereas map can be         
+                used just to store data
+
+# Custom DS
+    # Stack
+        -   follows LIFO principle
+        -   push(), pop() => removes recently added element
+        -   Sample use case : 
+            Browser's forward and back navigation
+            Undo operation while typing  
+            Call stack in JS runtime
+
+    # Queue
+        -   follows FIFO principle
+        -   useful when process in an orderly fashion
+        -   enqueue(), dequeue()
+        -   Sample use case : 
+            Printer
+            CPU stack scheduling
+            Callback Queue in JS runtime
+
+    # Cicular Queue
+        - enqueue(), dequeue()
+        -   Sample use case : 
+            Clock
+            Streaming data
+            Traffic lights
+

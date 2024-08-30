@@ -1,0 +1,86 @@
+<html>
+    <script>
+        console.log("------------------ Bubble Sort => Big-O is O(n^2) Quadratic--------------------");
+        function bubbleSort(arr){
+            let isSwapped;
+            do {
+                isSwapped = false;
+                for(let i = 0; i < arr.length - 1; i++){
+                    if(arr[i] > arr[i + 1]){
+                        let temp = arr[i];
+                        arr[i] = arr[i + 1];
+                        arr[i + 1] = temp;
+                        isSwapped = true;
+                    }
+                }
+            } while (isSwapped)
+        }
+        const arr = [8, 20, -2, 4]
+        bubbleSort(arr)
+        console.log(arr); //[-2, 4, 8, 20]
+
+        console.log("\n------------------ Insertion Sort => Big-O is O(n^2) Quadratic--------------------");
+        function insertionSort(arr){
+            for(let i = 1; i < arr.length; i++){
+                let numberToInsert = arr[i],        //20    -2  
+                sortedElementIndex = i - 1;         //0      1  0
+                while(sortedElementIndex >= 0 && arr[sortedElementIndex] > numberToInsert){         //0 >=0 && 8 > 20 => False      1>=0 &&  20 > -2 => True
+                    arr[sortedElementIndex + 1] = arr[sortedElementIndex];  //arr[2] = 20
+                    sortedElementIndex = sortedElementIndex - 1             //0
+                }
+                arr[sortedElementIndex + 1] = numberToInsert    //arr[1] = 20
+            }
+        }
+        let insertionArr = [8, 20, -2, 4]
+        insertionSort(insertionArr)
+        console.log(insertionArr);
+
+        console.log("\n------------------ Quick Sort => Worst case is O(n^2) and Average case is O(nlog n) --------------------");
+        function quickSort(arr){
+            if(arr.length < 2){
+                return arr
+            }
+            let pivot = arr[arr.length - 1],
+                left = [],
+                right = [];
+
+            for(let i = 0; i < arr.length - 1; i++){
+                if(arr[i] < pivot){
+                    left.push(arr[i])
+                } else {
+                    right.push(arr[i])
+                }
+            }
+
+            return [...quickSort(left), pivot, ...quickSort(right)]
+        }
+        const quickSortArray = [8, 20, -2, 4]
+        console.log(quickSort(quickSortArray));
+
+        console.log("\n------------------ Merge Sort => Big-O is O(nlog n)  --------------------");
+        function mergeSort(arr){
+            if(arr.length < 2){
+                return arr;
+            }
+            const midIndex = Math.floor(arr.length / 2),
+                leftArray = arr.slice(0, midIndex),
+                rightArray = arr.slice(midIndex);
+            return merge(mergeSort(leftArray), mergeSort(rightArray))
+
+            function merge(left, right){
+                let sortedArray = [];
+                while(left.length && right.length){
+                    if(left[0] <= right[0])
+                        sortedArray.push(left.shift())
+                    else
+                        sortedArray.push(right.shift())
+                }
+
+                return [...sortedArray, ...left, ...right]
+            }   
+
+        }
+        let mergeSortArray = [-6, 20, 8, -2, 4]
+        console.log(mergeSort(mergeSortArray));
+    </script>
+</html>

@@ -1,0 +1,57 @@
+<html>
+    <script>
+        //Optimised Queue implementation using object
+        class Queue {
+            constructor(){
+                this.items = {}
+                this.rear = 0
+                this.front = 0
+            }
+
+            enqueue(element){
+                this.items[this.rear] = element
+                this.rear++
+            }
+
+            dequeue(){
+                const item = this.items[this.front]
+                delete this.items[this.front]
+                this.front++
+                return item
+            }
+
+            isEmpty(){
+                return this.rear - this.front === 0
+            }
+
+            peek(){
+                return this.items[this.front]
+            }
+
+            size(){
+                return this.rear - this.front
+            }
+
+            print(){
+                console.log(this.items)
+            }
+        }
+
+        const queue = new Queue()
+        console.log(queue.isEmpty())
+        queue.enqueue(1)
+        queue.enqueue(2)
+        queue.enqueue(3)
+        queue.enqueue(4)
+        console.log(queue.size());  // 4
+        queue.print()               // { '0': 1, '1': 2, '2': 3, '3': 4 }
+        queue.dequeue()
+        queue.print()               // { '1': 2, '2': 3, '3': 4 }
+        console.log(queue.size());  // 3
+        console.log(queue.peek());  // 2
+        queue.dequeue()
+        queue.print()               // { '2': 3, '3': 4 }
+        console.log(queue.peek());  // 3
+
+    </script>
+</html>

@@ -1,0 +1,15 @@
+<html>
+    <script>
+        function hanoiTower(n, from, to, using){
+            if(n === 1){
+                console.log(`Move disk 1 from ${from} to ${to}`)
+                return
+            }
+
+            hanoiTower(n-1, from, using, to);
+            console.log(`Move disk ${n} from ${from} to ${to}`);
+            hanoiTower(n-1, using, to, from)
+        }
+        console.log(hanoiTower(3, 'A', 'C', 'B'));
+    </script>
+</html>

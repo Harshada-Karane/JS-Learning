@@ -1,0 +1,31 @@
+<html>
+    <script>
+        console.log("--------------- GCD using Euclidian Algorithm => Big-O is O(log(min(a, b))--------------------");
+        function gcd(a, b){
+            while (b != 0){
+                let mod = a % b;
+                a = b;
+                b = mod;
+            }
+            return a
+        }
+
+        console.log(gcd(48, 18));
+
+        console.log("--------------- GCD with Recursion --------------------");
+        function gcdRec(a, b){
+            if(b === 0){
+                return a
+            } else {
+                return gcdRec(b, a % b)
+            }
+        }
+        console.log(gcdRec(48, 18));
+
+        console.log("------------- LCM --------------")
+        /* formula
+            LCM(a, b) = (a * b) / gcd(a, b)
+        */ 
+
+    </script>
+</html>

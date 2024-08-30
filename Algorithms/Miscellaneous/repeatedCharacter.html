@@ -1,0 +1,31 @@
+<html>
+    <script>
+        function findRepeatedCharacters(str) {
+    // Create an object to store the frequency of each character
+    const frequency = {};
+    const repeated = [];
+
+    // Count the frequency of each character
+    for (const char of str) {
+        if (frequency[char]) {
+            frequency[char]++;
+        } else {
+            frequency[char] = 1;
+        }
+    }
+
+    // Identify characters that appear more than once
+    for (const char in frequency) {
+        if (frequency[char] > 1) {
+            repeated.push(char);
+        }
+    }
+
+    return repeated;
+}
+
+const input = "hello";
+console.log(findRepeatedCharacters(input)); // Outputs: ["r", "g", "m"]
+
+    </script>
+</html>
